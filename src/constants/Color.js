@@ -1,0 +1,16 @@
+export const color = {
+  primary: "#00B14F",
+  secondary: "#fff",
+  third: "gray",
+  textTitle: "#282A30",
+  textBase: "#3C4149",
+  textMuted: "#686F76",
+  textFaint: "#90959D",
+  textLink: "#2161DC",
+  border: "#E4E4E4",
+  primaryLight: "#CCEFDC",
+  primary_100: "#7AD6A4",
+  primary_200: "#52CA87",
+  primary_300: "#29BD6B",
+  test: "rgba(122, 214, 164, 0.35)",
+};
