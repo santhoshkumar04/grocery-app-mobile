@@ -1,7 +1,7 @@
-import Cart from "../Screens/tabs/Cart";
-import Catagorys from "../Screens/tabs/Catagorys";
-import Home from "../Screens/tabs/Home";
-import Order from "../Screens/tabs/Order";
+import Cart from "../screens/tabs/Cart";
+import Catagorys from "../screens/tabs/Catagorys";
+import Home from "../screens/tabs/Home";
+import Order from "../screens/tabs/Order";
 
 export const tabData = [
   { title: "home", iconname: "home-outline", componet: Home },

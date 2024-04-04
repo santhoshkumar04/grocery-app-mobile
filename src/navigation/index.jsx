@@ -1,20 +1,20 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { SCREENS } from "../Screens";
-import Splash from "../Screens/Splash";
-import Auth from "../Screens/auth/Auth";
+import { SCREENS } from "../screens";
+import Splash from "../screens/Splash";
+import Auth from "../screens/auth/Auth";
 import { BottomTabNav } from "./BottomTabNav";
-import OtpVerify from "../Screens/auth/OtpVerify";
-import ProductDetails from "../Screens/ProductDetails";
-import Profile from "../Screens/Profile";
-import Wallet from "../Screens/tabs/Wallet";
-import Order from "../Screens/tabs/Order";
-import Address from "../Screens/Address";
-import AccountAndPrivacy from "../Screens/AccountAndPrivacy";
-import Notification from "../Screens/Notification";
-import AboutUs from "../Screens/AboutUs";
-import CustomerSupport from "../Screens/CustomerSupport";
-import OrderSummary from "../Screens/OrderSummary";
+import OtpVerify from "../screens/auth/OtpVerify";
+import ProductDetails from "../screens/ProductDetails";
+import Profile from "../screens/Profile";
+import Wallet from "../screens/tabs/Wallet";
+import Order from "../screens/tabs/Order";
+import Address from "../screens/Address";
+import AccountAndPrivacy from "../screens/AccountAndPrivacy";
+import Notification from "../screens/Notification";
+import AboutUs from "../screens/AboutUs";
+import CustomerSupport from "../screens/CustomerSupport";
+import OrderSummary from "../screens/OrderSummary";
 
 const Stack = createNativeStackNavigator();
 

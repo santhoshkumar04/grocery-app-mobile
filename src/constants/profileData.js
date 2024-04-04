@@ -1,4 +1,4 @@
-import { SCREENS } from "../Screens";
+import { SCREENS } from "../screens";
 
 export const profile = [
   {

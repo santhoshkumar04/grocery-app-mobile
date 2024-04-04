@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { color } from "../constants/Color";
-import { SCREENS } from "../Screens";
+import { SCREENS } from "../screens";
 import IonicIcon from "@expo/vector-icons/Ionicons";
 import { tabData } from "../constants/tabData";
 

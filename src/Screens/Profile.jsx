@@ -5,7 +5,7 @@ import IonicIcon from "@expo/vector-icons/Ionicons";
 import { color } from "../constants/Color";
 import { profile } from "../constants/profileData";
 import { StatusBar } from "expo-status-bar";
-import { shareAction } from "../Utils/utils";
+import { shareAction } from "../utils/utils";
 import AppHeader from "../components/ui/AppHeader";
 import { SCREENS } from ".";
 

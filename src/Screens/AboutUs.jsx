@@ -3,7 +3,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../components/ui/AppHeader";
 import { color } from "../constants/Color";
-import { renderWebBrowserAsync } from "../Utils/utils";
+import { renderWebBrowserAsync } from "../utils/utils";
 import { StatusBar } from "expo-status-bar";
 
 const AboutUs = ({ navigation }) => {

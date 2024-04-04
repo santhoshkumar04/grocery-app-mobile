@@ -10,7 +10,7 @@ import IonicIcon from "@expo/vector-icons/Ionicons";
 import { color } from "../constants/Color";
 import SearchInput from "../components/SearchInput";
 import { useNavigation } from "@react-navigation/native";
-import { SCREENS } from "../Screens/index";
+import { SCREENS } from "../screens/index";
 
 const StickyHeader = ({ children }) => {
   const nav = useNavigation();

@@ -5,12 +5,11 @@ import AppHeader from "../../components/ui/AppHeader";
 import { color } from "../../constants/Color";
 import { vegetables } from "../../constants/vegetables";
 import IonicIcon from "@expo/vector-icons/Ionicons";
-import { SCREENS } from "..";
+import { SCREENS } from "../index";
 import { StatusBar } from "expo-status-bar";
 
 const Order = ({ route, navigation }) => {
-  const { params } = route;
-  console.log("Order", route, params);
+  // const { params } = route;
   return (
     <SafeAreaView>
       {/* <StatusBar backgroundColor="white" /> */}

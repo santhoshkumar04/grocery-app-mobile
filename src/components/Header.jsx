@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import IonicIcon from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
-import { SCREENS } from "../Screens";
+import { SCREENS } from "../screens";
 import { color } from "../constants/Color";
 
 const Header = () => {
