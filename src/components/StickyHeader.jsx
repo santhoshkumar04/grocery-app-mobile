@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     padding: 14,
     paddingTop: 175,
     backgroundColor: "#fff",
+    gap: 20,
   },
   /** Header */
   header: {
