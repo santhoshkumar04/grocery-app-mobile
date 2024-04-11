@@ -1,5 +1,15 @@
-import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  Modal,
+  Pressable,
+  ImageBackground,
+  Alert,
+} from "react-native";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import IonicIcon from "@expo/vector-icons/Ionicons";
 import { color } from "../constants/Color";
@@ -10,6 +20,7 @@ import AppHeader from "../components/ui/AppHeader";
 import { SCREENS } from ".";
 
 const Profile = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
   const handleOnPress = (type, view) => {
     if ("function" === type) {
       if (view === "share") {
@@ -19,7 +30,7 @@ const Profile = ({ navigation }) => {
           "https://github.com"
         );
       } else {
-        return console.log("logout");
+        return setModalVisible(!modalVisible);
       }
     }
     return navigation.navigate(view, { path: "profile" });
@@ -180,6 +191,58 @@ const Profile = ({ navigation }) => {
             <Text style={{ fontSize: 16, color: color.textFaint }}>v1.0.0</Text>
           </View>
         </ScrollView>
+        <ImageBackground
+          style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "red",
+          }}
+        >
+          <Modal
+            animationType="fade"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: 22,
+              }}
+            >
+              <View
+                style={{
+                  margin: 20,
+                  backgroundColor: "white",
+                  borderRadius: 20,
+                  padding: 35,
+                  alignItems: "center",
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 2,
+                  },
+                  shadowOpacity: 0.25,
+                  shadowRadius: 4,
+                  elevation: 5,
+                }}
+              >
+                <Text style={{ marginBottom: 15, textAlign: "center" }}>
+                  Hello World!
+                </Text>
+                <Pressable onPress={() => setModalVisible(!modalVisible)}>
+                  <Text>Hide Modal</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+        </ImageBackground>
       </View>
     </SafeAreaView>
   );

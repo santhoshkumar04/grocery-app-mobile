@@ -29,10 +29,10 @@ const AppHeader = ({ title, navigation }) => {
       <IonicIcon
         onPress={() => navigation.goBack()}
         name="arrow-back"
-        size={24}
+        size={20}
         color={color.textBase}
       />
-      <Text style={{ fontSize: 18, fontWeight: 500, color: color.textBase }}>
+      <Text style={{ fontSize: 16, fontWeight: 500, color: color.textBase }}>
         {title}
       </Text>
     </View>

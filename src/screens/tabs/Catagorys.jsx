@@ -69,8 +69,8 @@ const Catagorys = () => {
       </View>
       <SafeAreaView style={{ flex: 1, paddingHorizontal: 14, paddingTop: 3 }}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {[...new Array(6)].map((item) => (
-            <View>
+          {[...new Array(6)].map((item, i) => (
+            <View key={i}>
               <View style={{ paddingVertical: 10 }}>
                 <Text style={{ fontSize: 18, fontWeight: 500 }}>
                   Vegatables
@@ -84,6 +84,7 @@ const Catagorys = () => {
                 showsVerticalScrollIndicator={false}
                 renderItem={({ item, i }) => (
                   <TouchableOpacity
+                    key={i}
                     style={{
                       alignItems: "center",
                       justifyContent: "space-around",

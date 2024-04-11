@@ -5,6 +5,8 @@ import AppHeader from "../../components/ui/AppHeader";
 import { color } from "../../constants/Color";
 import { vegetables } from "../../constants/vegetables";
 import IonicIcon from "@expo/vector-icons/Ionicons";
+import { Feather } from "@expo/vector-icons";
+
 import { SCREENS } from "../index";
 import { StatusBar } from "expo-status-bar";
 
@@ -36,16 +38,18 @@ const Order = ({ route, navigation }) => {
             <View
               style={{ flexDirection: "row", alignItems: "center", gap: 15 }}
             >
-              <IonicIcon
-                name="checkmark-done-outline"
-                color={color.primary}
-                size={30}
-              />
+              <Feather name="check-square" size={30} color={color.primary} />
               <View>
                 <Text style={{ fontSize: 18, fontWeight: 600 }}>
                   Deliverd in 10 mins
                 </Text>
-                <Text style={{ fontSize: 14, fontWeight: 400 }}>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 400,
+                    color: color.textMuted,
+                  }}
+                >
                   <Text style={{ fontWeight: 500 }}>₹500</Text> 03-Apr-2024 at
                   10:30 AM
                 </Text>
@@ -59,7 +63,14 @@ const Order = ({ route, navigation }) => {
               paddingBottom: 14,
             }}
           >
-            <Text numberOfLines={2}>
+            <Text
+              numberOfLines={2}
+              style={{
+                fontSize: 14,
+                fontWeight: 400,
+                color: color.textMuted,
+              }}
+            >
               {vegetables.map((i) => i.name).join(", ")}
             </Text>
           </View>
@@ -71,7 +82,15 @@ const Order = ({ route, navigation }) => {
               alignItems: "center",
             }}
           >
-            <Text>Reorder</Text>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: 400,
+                color: color.primary,
+              }}
+            >
+              Reorder
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

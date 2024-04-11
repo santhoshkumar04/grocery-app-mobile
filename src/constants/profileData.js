@@ -34,15 +34,21 @@ export const profile = [
         type: "function",
       },
       {
-        title: "Customer Support",
-        view: "CustomerSupport",
-        icon: "chatbox-ellipses-outline",
+        title: "Payment methods",
+        view: SCREENS.NOTIFICATION,
+        icon: "card-outline",
         type: "navication",
       },
       {
         title: "Notification preferenced",
         view: SCREENS.NOTIFICATION,
         icon: "notifications-outline",
+        type: "navication",
+      },
+      {
+        title: "Help",
+        view: "CustomerSupport",
+        icon: "chatbox-ellipses-outline",
         type: "navication",
       },
       {
