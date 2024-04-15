@@ -2,12 +2,13 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 
 const Counters = () => {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
   return (
     <View style={styles.container}>
       <View style={styles.counter}>
         <TouchableOpacity
           onPress={() => {
+            if (value <= 1) return 1;
             setValue(value - 1);
           }}
           style={styles.counterAction}

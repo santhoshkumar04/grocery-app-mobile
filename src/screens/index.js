@@ -12,6 +12,8 @@ export const SCREENS = {
   WELCOME: "Welcome",
   WALLET: "Wallet",
   ADDRESS: "Address",
+  ADDADDRESS: "AddAddress",
+  SAVEADDRESS: "SaveAddress",
   ACCOUNTANDPRIVACY: "AccountAndPrivacy",
   CUSTOMERSUPPORT: "CustomerSupport",
   NOTIFICATION: "Notification",

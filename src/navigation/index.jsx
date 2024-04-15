@@ -15,13 +15,15 @@ import Notification from "../screens/Notification";
 import AboutUs from "../screens/AboutUs";
 import CustomerSupport from "../screens/CustomerSupport";
 import OrderSummary from "../screens/OrderSummary";
+import AddAddress from "../screens/AddAddress";
+import SaveAddress from "../screens/SaveAddress";
 
 const Stack = createNativeStackNavigator();
 
 export default function StackNavigation() {
   return (
     <Stack.Navigator
-      initialRouteName={"Home"}
+      initialRouteName={"Splash"}
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name={SCREENS.SPLASH} component={Splash} />
@@ -33,6 +35,8 @@ export default function StackNavigation() {
       <Stack.Screen name={SCREENS.WALLET} component={Wallet} />
       <Stack.Screen name={SCREENS.ORDERS} component={Order} />
       <Stack.Screen name={SCREENS.ADDRESS} component={Address} />
+      <Stack.Screen name={SCREENS.ADDADDRESS} component={AddAddress} />
+      <Stack.Screen name={SCREENS.SAVEADDRESS} component={SaveAddress} />
       <Stack.Screen name={SCREENS.ORDERSSUMMARY} component={OrderSummary} />
       <Stack.Screen
         name={SCREENS.ACCOUNTANDPRIVACY}

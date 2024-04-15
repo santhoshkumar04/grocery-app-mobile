@@ -14,7 +14,7 @@ const ProductCarousel = ({ data }) => {
         renderItem={({ item, index }) => (
           <TouchableOpacity
             onPress={() => {
-              nav.navigate("ProductDetails", { main: item });
+              nav.navigate("ProductDetails", { _id: item.id });
             }}
             activeOpacity={0.8}
             style={{

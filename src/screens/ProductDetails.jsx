@@ -1,26 +1,39 @@
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { color } from "../constants/Color";
 import IonicIcon from "@expo/vector-icons/Ionicons";
-import { useNavigation } from "@react-navigation/native";
 import Accordion from "../components/ui/Accordion";
 import SingleProductAddCart from "../components/SingleProductAddCart";
+import { vegetables } from "../constants/vegetables";
+import Counters from "../components/ui/Counters";
 
-const ProductDetails = ({ route }) => {
-  const { name, image, quantity, id, price } = route.params.main;
-  const nav = useNavigation();
+const ProductDetails = ({ route, navigation }) => {
+  const { _id } = route.params;
+
+  const [ProductDetails, setProductDetails] = useState({});
+
+  const getProductDratils = () => {
+    const res = vegetables.find((product) => product?.id === _id);
+    return res;
+  };
+
+  // Use effect to populate the state with data passed through navigation params
+
+  useEffect(() => {
+    const details = getProductDratils();
+    setProductDetails(details);
+  }, [_id]);
+
   return (
-    <SafeAreaView
-      style={{ flex: 1, gap: 20, backgroundColor: color.secondary }}
-    >
+    <SafeAreaView style={{ flex: 1, backgroundColor: color.secondary }}>
       <StatusBar backgroundColor={color.border} />
       <ScrollView>
         <View>
           <Image
             resizeMode="contain"
-            source={{ uri: image }}
+            source={{ uri: ProductDetails.image }}
             style={{
               backgroundColor: color.border,
               height: 350,
@@ -41,7 +54,7 @@ const ProductDetails = ({ route }) => {
             }}
           >
             <IonicIcon
-              onPress={() => nav.goBack()}
+              onPress={() => navigation.goBack()}
               color={color.textBase}
               name="arrow-back-sharp"
               size={24}
@@ -61,18 +74,19 @@ const ProductDetails = ({ route }) => {
             <Text
               style={{ fontSize: 20, fontWeight: 700, color: color.textBase }}
             >
-              {name}
+              {ProductDetails.name}
             </Text>
             <Text
               style={{ fontSize: 16, color: color.textMuted, marginTop: 5 }}
             >
-              {quantity}
+              {ProductDetails.quantity}
             </Text>
           </View>
           <View
             style={{
               flexDirection: "row",
               alignItems: "center",
+              width: "100%",
               justifyContent: "space-between",
               marginTop: 10,
             }}
@@ -80,11 +94,12 @@ const ProductDetails = ({ route }) => {
             <Text
               style={{ fontSize: 20, fontWeight: 600, color: color.textBase }}
             >
-              ₹{price}
+              ₹{ProductDetails.price}
             </Text>
-            <TouchableOpacity>
+            <Counters />
+            {/* <TouchableOpacity>
               <Text>2 Options</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
           <View style={{ paddingVertical: 10 }}>
             <Text style={{ fontSize: 17, fontWeight: "600" }}>Select Unit</Text>
@@ -108,11 +123,15 @@ const ProductDetails = ({ route }) => {
             </View>
           </View>
           <Accordion title="Product Information">
-            <Text>fsdsddfsdf sfdsd sdfsdf </Text>
+            <Text>{ProductDetails.description} </Text>
           </Accordion>
         </View>
       </ScrollView>
-      <SingleProductAddCart price={price} productId={id} quantity={quantity} />
+      <SingleProductAddCart
+        price={ProductDetails.price}
+        productId={ProductDetails.id}
+        quantity={ProductDetails.quantity}
+      />
     </SafeAreaView>
   );
 };

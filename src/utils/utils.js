@@ -1,5 +1,6 @@
 import { Share } from "react-native";
 import * as WebBrowser from "expo-web-browser";
+import * as Location from "expo-location";
 
 export const shareAction = async (title, message, url) => {
   try {
@@ -28,4 +29,27 @@ export const shareAction = async (title, message, url) => {
 
 export const renderWebBrowserAsync = async (url) => {
   await WebBrowser.openBrowserAsync(url);
+};
+
+export const getUserLocation = async () => {
+  let { status } = await Location.requestForegroundPermissionsAsync();
+  if (status !== "granted") {
+    setErrorMsg("Permission to access location was denied");
+    return;
+  }
+  let location = await Location.getCurrentPositionAsync({});
+  return location.coords;
+
+  // return new Promise((resolve, reject) => {
+  //   navigator.geolocation.getCurrentPosition(
+  //     function (position) {
+  //       userGeolocation.latitude = position.coords.latitude;
+  //       userGeolocation.longitude = position.coords.longitude;
+  //       resolve();
+  //     },
+  //     function (err) {
+  //       reject(Error(err));
+  //     }
+  //   );
+  // });
 };

@@ -16,12 +16,9 @@ import BottomSheet, {
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
 
-const StickyHeader = ({ children }) => {
+const StickyHeader = ({ children, handleOpenPress }) => {
   const nav = useNavigation();
   const scrollY = useRef(new Animated.Value(0)).current;
-  const bottomSheetRef = useRef(null);
-
-  const handleOpenPress = () => bottomSheetRef.current?.expand();
 
   const translateHeader = scrollY.interpolate({
     inputRange: [0, 80],
@@ -38,18 +35,6 @@ const StickyHeader = ({ children }) => {
     outputRange: [0, 40],
     extrapolate: "clamp",
   });
-
-  const renderBackdrop = useCallback(
-    (props) => (
-      <BottomSheetBackdrop
-        style={{ zIndex: 1 }}
-        appearsOnIndex={1}
-        disappearsOnIndex={-1}
-        {...props}
-      />
-    ),
-    []
-  );
 
   return (
     <View style={{}}>
@@ -121,44 +106,6 @@ const StickyHeader = ({ children }) => {
       >
         {children}
       </Animated.ScrollView>
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={-1}
-        // snapPoints={["25%"]}
-        enablePanDownToClose={true}
-        style={{ zIndex: 3 }}
-        animatedIndex={0}
-        backdropComponent={renderBackdrop}
-        enableDynamicSizing={true}
-      >
-        <BottomSheetView>
-          <View
-            style={{
-              zIndex: 3,
-              flex: 1,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Text>Awesome 🎉</Text>
-            <Text>Awesome 🎉</Text>
-            <Text>Awesome 🎉</Text>
-            <Text>Awesome 🎉</Text>
-            <Text>Awesome 🎉</Text>
-            <Text>Awesome 🎉</Text>
-            <Text>Awesome 🎉</Text>
-            <Text>This is the content of the Bottom Sheet</Text>
-            <Text>This is the content of the Bottom Sheet</Text>
-            <Text>This is the content of the Bottom Sheet</Text>
-            <Text>This is the content of the Bottom Sheet</Text>
-            <Text>This is the content of the Bottom Sheet</Text>
-            <Text>This is the content of the Bottom Sheet</Text>
-            <Text>This is the content of the Bottom Sheet</Text>
-            <Text>This is the content of the Bottom Sheet</Text>
-            <Text>This is the content of the Bottom Sheet</Text>
-          </View>
-        </BottomSheetView>
-      </BottomSheet>
     </View>
   );
 };
