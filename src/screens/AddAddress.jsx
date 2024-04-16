@@ -5,19 +5,23 @@ import MapView, { PROVIDER_GOOGLE, Marker, Circle } from "react-native-maps";
 import * as Location from "expo-location";
 import { color } from "../constants/Color";
 import { MaterialIcons } from "@expo/vector-icons";
-import { getUserLocation } from "../utils/utils";
+import {
+  getCurrentLocation,
+  getUserLocation,
+  locationPermission,
+} from "../utils/utils";
 import { SCREENS } from ".";
 
 const AddAddress = ({ navigation }) => {
-  const [location, setLocation] = useState({
-    latitude: 37.78825,
-    longitude: -122.4324,
+  const [currentLocation, setCurrentLocation] = useState({
+    latitude: 13.081066234765593,
+    longitude: 80.20168177266935,
     latitudeDelta: 0.0016214846145370387,
     longitudeDelta: 0.0011355802416801453,
   });
   //   const [mapRegion, setmapRegion] = useState({
-  //     latitude: 37.78825,
-  //     longitude: -122.4324,
+  //     latitude: 13.081066234765593,
+  //     longitude: 80.20168177266935,
   //     latitudeDelta: 0.0016214846145370387,
   //     longitudeDelta: 0.0011355802416801453,
   //   });
@@ -25,7 +29,7 @@ const AddAddress = ({ navigation }) => {
 
   const handleUserLocation = () => {
     getUserLocation().then((user) => {
-      setLocation({
+      setCurrentLocation({
         latitude: user.latitude,
         longitude: user.longitude,
         latitudeDelta: 0.0016214846145370387,
@@ -42,11 +46,26 @@ const AddAddress = ({ navigation }) => {
     });
   };
 
+  // const getUserCurrentloctio = async () => {
+  //   console.log("getUserCurrentloctio");
+  //   const locPermissionDenied = await locationPermission();
+  //   console.log(locPermissionDenied);
+  //   if (locPermissionDenied === "granted") {
+  //     console.log("inside condition");
+  //     // const { cords } = getCurrentLocation();
+  //     // console.log(cords);
+  //     const { latitude, longitude, heading } = getCurrentLocation();
+  //     console.log(latitude, longitude, heading);
+  //   }
+  //   console.log("inside outine");
+  // };
+
   useEffect(() => {
+    // getUserCurrentloctio();
     getUserLocation()
       .then((location) => {
         if (location) {
-          setLocation({
+          setCurrentLocation({
             latitude: location.latitude,
             longitude: location.longitude,
             latitudeDelta: 0.04175028550215565,
@@ -58,8 +77,7 @@ const AddAddress = ({ navigation }) => {
         console.log(error);
       });
   }, []);
-
-  console.log("location", location);
+  // console.log(currentLocation);
 
   return (
     <View style={{ flex: 1 }}>
@@ -71,8 +89,8 @@ const AddAddress = ({ navigation }) => {
           provider={PROVIDER_GOOGLE}
           showsUserLocation={true}
           showsMyLocationButton={false}
-          initialRegion={location}
-          onRegionChange={(region) => setLocation(region)}
+          initialRegion={currentLocation}
+          onRegionChange={(region) => setCurrentLocation(region)}
           //   region={location}
         >
           {/* <Circle
@@ -85,7 +103,7 @@ const AddAddress = ({ navigation }) => {
             strokeColor={"#1a66ff"}
             fillColor={"rgba(230,238,255,0.7)"}
           /> */}
-          <Marker coordinate={location} title="Marker">
+          <Marker coordinate={currentLocation} title="Marker">
             <Image
               style={{ height: 60, width: 60, resizeMode: "contain" }}
               source={require("../../assets/icons8-map-pin-80.png")}
@@ -162,13 +180,15 @@ const AddAddress = ({ navigation }) => {
           <View>
             <Text style={{ fontSize: 16, fontWeight: 500 }}>adasd</Text>
             <Text>
-              {location.latitude}, {location.longitude}
+              {currentLocation.latitude}, {currentLocation.longitude}
             </Text>
           </View>
         </View>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate(SCREENS.SAVEADDRESS, { location: location })
+            navigation.navigate(SCREENS.SAVEADDRESS, {
+              location: currentLocation,
+            })
           }
           style={{
             backgroundColor: color.primary,

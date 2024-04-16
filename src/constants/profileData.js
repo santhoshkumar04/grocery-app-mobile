@@ -35,7 +35,7 @@ export const profile = [
       },
       {
         title: "Payment methods",
-        view: SCREENS.NOTIFICATION,
+        view: SCREENS.PAYMENTSETTINGS,
         icon: "card-outline",
         type: "navication",
       },

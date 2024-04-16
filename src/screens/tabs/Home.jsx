@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 import Banner from "../../components/Banner";
 import ProductTitle from "../../components/ProductTitle";
@@ -11,6 +11,7 @@ import BottomSheet, {
   BottomSheetView,
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
+import { getUserLocation, locationPermission } from "../../utils/utils";
 
 const Home = () => {
   const bottomSheetRef = useRef(null);
@@ -28,6 +29,11 @@ const Home = () => {
     ),
     []
   );
+
+  useEffect(() => {
+    // locationPermission();
+    getUserLocation();
+  }, []);
 
   return (
     <View style={{ backgroundColor: color.secondary, flex: 1 }}>
@@ -56,7 +62,7 @@ const Home = () => {
         <BottomSheetView>
           <View
             style={{
-              zIndex: 3,
+              zIndex: 2,
               flex: 1,
               alignItems: "center",
               justifyContent: "center",

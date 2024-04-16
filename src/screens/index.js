@@ -17,6 +17,7 @@ export const SCREENS = {
   ACCOUNTANDPRIVACY: "AccountAndPrivacy",
   CUSTOMERSUPPORT: "CustomerSupport",
   NOTIFICATION: "Notification",
+  PAYMENTSETTINGS: "PaymentSettings",
   ORDERSSUMMARY: "Orders_Summary",
   ABOUTUS: "Aboutus",
 };

@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 
-const Counters = () => {
+const Counters = ({ handleQty }) => {
   const [value, setValue] = React.useState(1);
   return (
     <View style={styles.container}>
@@ -33,7 +33,6 @@ const Counters = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 24,
     flexGrow: 1,
     flexShrink: 1,
     flexBasis: 0,

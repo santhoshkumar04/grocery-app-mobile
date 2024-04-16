@@ -29,7 +29,7 @@ const ProductDetails = ({ route, navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.secondary }}>
       <StatusBar backgroundColor={color.border} />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           <Image
             resizeMode="contain"
@@ -68,6 +68,7 @@ const ProductDetails = ({ route, navigation }) => {
             flex: 1,
             backgroundColor: color.secondary,
             gap: 10,
+            marginBottom: 100,
           }}
         >
           <View style={{ marginTop: 20 }}>
@@ -96,10 +97,9 @@ const ProductDetails = ({ route, navigation }) => {
             >
               ₹{ProductDetails.price}
             </Text>
-            <Counters />
-            {/* <TouchableOpacity>
-              <Text>2 Options</Text>
-            </TouchableOpacity> */}
+            <View>
+              <Counters />
+            </View>
           </View>
           <View style={{ paddingVertical: 10 }}>
             <Text style={{ fontSize: 17, fontWeight: "600" }}>Select Unit</Text>

@@ -17,6 +17,7 @@ import CustomerSupport from "../screens/CustomerSupport";
 import OrderSummary from "../screens/OrderSummary";
 import AddAddress from "../screens/AddAddress";
 import SaveAddress from "../screens/SaveAddress";
+import PaymentSettings from "../screens/PaymentSettings";
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,10 @@ export default function StackNavigation() {
         component={CustomerSupport}
       />
       <Stack.Screen name={SCREENS.NOTIFICATION} component={Notification} />
+      <Stack.Screen
+        name={SCREENS.PAYMENTSETTINGS}
+        component={PaymentSettings}
+      />
       <Stack.Screen name={SCREENS.ABOUTUS} component={AboutUs} />
     </Stack.Navigator>
   );

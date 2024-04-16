@@ -17,7 +17,7 @@ const Notification = ({ navication }) => {
             flexDirection: "row",
             alignItems: "center",
             width: "100%",
-            backgroundColor: color.border,
+            backgroundColor: color.secondary,
             borderRadius: 8,
             padding: 10,
             gap: 10,
