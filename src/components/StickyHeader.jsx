@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   StyleSheet,
   View,
@@ -11,10 +11,6 @@ import { color } from "../constants/Color";
 import SearchInput from "../components/SearchInput";
 import { useNavigation } from "@react-navigation/native";
 import { SCREENS } from "../screens/index";
-import BottomSheet, {
-  BottomSheetView,
-  BottomSheetBackdrop,
-} from "@gorhom/bottom-sheet";
 
 const StickyHeader = ({ children, handleOpenPress }) => {
   const nav = useNavigation();
@@ -79,18 +75,6 @@ const StickyHeader = ({ children, handleOpenPress }) => {
             </View>
           </TouchableOpacity>
         </Animated.View>
-
-        {/* <View style={styles.inputWrapper}>
-          <TextInput
-            placeholder="Where are you going?"
-            placeholderTextColor="#05141c"
-            style={styles.input}
-          />
-
-          <View style={styles.inputIcon}>
-            <FeatherIcon color="#05141c" name="search" size={16} />
-          </View>
-        </View> */}
         <SearchInput />
       </Animated.View>
       <Animated.ScrollView
@@ -113,8 +97,7 @@ const StickyHeader = ({ children, handleOpenPress }) => {
 const styles = StyleSheet.create({
   content: {
     padding: 14,
-    paddingTop: 175,
-    backgroundColor: "#fff",
+    paddingTop: 165,
     gap: 20,
   },
   /** Header */
@@ -128,7 +111,7 @@ const styles = StyleSheet.create({
     height: 150,
     alignItems: "stretch",
     justifyContent: "center",
-    backgroundColor: "white",
+    // backgroundColor: "white",
     borderBottomRightRadius: 12,
     borderBottomLeftRadius: 12,
     gap: 8,
@@ -138,7 +121,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    // backgroundColor: "red",
   },
   headerTitle: {
     fontSize: 26,

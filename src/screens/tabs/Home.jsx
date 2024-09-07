@@ -12,6 +12,7 @@ import BottomSheet, {
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
 import { getUserLocation, locationPermission } from "../../utils/utils";
+import CarouselCards from "../../components/ui/CarouselCards";
 
 const Home = () => {
   const bottomSheetRef = useRef(null);
@@ -21,7 +22,7 @@ const Home = () => {
   const renderBackdrop = useCallback(
     (props) => (
       <BottomSheetBackdrop
-        style={{ zIndex: 1 }}
+        style={{ zIndex: 3 }}
         appearsOnIndex={1}
         disappearsOnIndex={-1}
         {...props}
@@ -36,25 +37,28 @@ const Home = () => {
   }, []);
 
   return (
-    <View style={{ backgroundColor: color.secondary, flex: 1 }}>
-      <View style={{ flex: 1 }}>
-        <StickyHeader handleOpenPress={handleOpenPress}>
-          <Banner />
-          <ProductTitle title="Exclusive Offer" />
-          <ProductCarousel data={vegetables} />
-          <ProductTitle title="Best Selling" />
-          <ProductCarousel data={vegetables} />
-          <ProductTitle title="Best Selling" />
-          <ProductCarousel data={vegetables} />
-        </StickyHeader>
-        <StatusBar />
+    <>
+      <View style={{ backgroundColor: color.secondary, flex: 1 }}>
+        <View style={{ flex: 1 }}>
+          <StickyHeader handleOpenPress={handleOpenPress}>
+            {/* <Banner /> */}
+            <CarouselCards />
+            <ProductTitle title="Exclusive Offer" />
+            <ProductCarousel data={vegetables} />
+            <ProductTitle title="Best Selling" />
+            <ProductCarousel data={vegetables} />
+            <ProductTitle title="Best Selling" />
+            <ProductCarousel data={vegetables} />
+          </StickyHeader>
+          <StatusBar />
+        </View>
       </View>
       <BottomSheet
         ref={bottomSheetRef}
         index={-1}
-        snapPoints={["25%"]}
+        snapPoints={["10", "25%"]}
         enablePanDownToClose={true}
-        style={{ zIndex: 3 }}
+        style={{ zIndex: 2 }}
         animatedIndex={0}
         backdropComponent={renderBackdrop}
         enableDynamicSizing={true}
@@ -87,7 +91,7 @@ const Home = () => {
           </View>
         </BottomSheetView>
       </BottomSheet>
-    </View>
+    </>
   );
 };
 
