@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     height: 150,
     alignItems: "stretch",
     justifyContent: "center",
-    // backgroundColor: "white",
+    backgroundColor: "white",
     borderBottomRightRadius: 12,
     borderBottomLeftRadius: 12,
     gap: 8,
